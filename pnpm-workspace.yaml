@@ -1,0 +1,5 @@
+# Platform binaries are provided by optional packages; no install scripts required.
+allowBuilds:
+  esbuild: false
+  sharp: false
+  workerd: false
