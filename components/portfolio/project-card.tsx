@@ -1,3 +1,8 @@
-export function ProjectCard({ title, description }: { title: string; description: string }) {
-  return <article className="project-card"><h2>{title}</h2><p className="body-copy">{description}</p></article>;
+import Link from 'next/link';
+
+export function ProjectCard({ title, description, href }: { title: string; description?: string; href?: string }) {
+  const content = <><h2>{title}</h2>{description && <p className="body-copy">{description}</p>}</>;
+  return <article className="project-card">
+    {href ? <Link href={href} className="project-link">{content}</Link> : content}
+  </article>;
 }

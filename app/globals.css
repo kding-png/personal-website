@@ -47,3 +47,42 @@ a:focus-visible, button:focus-visible { outline: 2px solid currentColor; outline
   .project-card p { margin-top: 14px; max-width: 290px; }
 }
 @media (prefers-reduced-motion: reduce) { .text-action { transition: none; } }
+
+/* Shared motion: only opacity and transforms animate, avoiding layout shifts. */
+:root { --motion-ease: cubic-bezier(.22, 1, .36, 1); }
+html { scroll-behavior: smooth; }
+.page-transition { animation: page-enter 420ms var(--motion-ease) both; }
+@keyframes page-enter {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.text-action, .home-link, .project-link {
+  -webkit-tap-highlight-color: transparent;
+  transition: opacity 220ms ease, transform 260ms var(--motion-ease), text-decoration-color 220ms ease;
+}
+.text-action, .home-link, .project-link h2 {
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: transparent;
+  text-underline-offset: 8px;
+}
+.project-link { display: block; width: fit-content; max-width: 100%; color: inherit; text-decoration: none; }
+.project-link h2 { transition: text-decoration-color 220ms ease; }
+@media (hover: hover) {
+  .text-action:hover, .home-link:hover { text-decoration-color: currentColor; transform: translateY(-2px); }
+  .project-link:hover { transform: translateY(-3px); }
+  .project-link:hover h2 { text-decoration-color: currentColor; }
+}
+.text-action:active, .home-link:active, .project-link:active { opacity: .7; transform: translateY(0); }
+.ux-project-list { list-style: none; padding: 0; margin: 137px 0 0; display: grid; gap: 64px; }
+.ux-page .home-link { margin-top: 112px; }
+@media (max-width: 900px) { .ux-project-list { margin-top: 100px; } }
+@media (max-width: 600px) {
+  .ux-project-list { margin-top: 76px; gap: 48px; }
+  .ux-page .home-link { margin-top: 80px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .page-transition { animation: none; }
+  .text-action, .home-link, .project-link, .project-link h2 { transition: none; transform: none; }
+}

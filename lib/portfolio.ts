@@ -7,6 +7,12 @@ export const navigation = [
   { label: 'Contact', href: null },
 ];
 export const projects = [
-  { title: 'UX Project', description: 'User research and digital product experiences.' },
+  { title: 'UX Project', description: 'User research and digital product experiences.', href: '/works/ux' },
   { title: 'CAD Designs', description: '3D modeling and physical design exploration.' },
+];
+
+// Add case-study descriptions and routes here when the content is ready.
+export const uxProjects = [
+  { title: 'Statusly' },
+  { title: 'Li Auto — Internship Website' },
 ];
