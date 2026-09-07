@@ -16,3 +16,7 @@ export const uxProjects = [
   { title: 'Statusly' },
   { title: 'Li Auto — Internship Website' },
 ];
+
+// Homepage navigation and numbered placeholders; replace with project assets later.
+export const headerNavigation = navigation.filter(item => item.label !== 'My works');
+export const featuredProjects = [1, 2, 3, 4].map(id => ({ id }));

@@ -86,3 +86,30 @@ html { scroll-behavior: smooth; }
   .page-transition { animation: none; }
   .text-action, .home-link, .project-link, .project-link h2 { transition: none; transform: none; }
 }
+
+/* Homepage: compact navigation, broad introduction, two-column portfolio. */
+.homepage-shell { max-width: 1600px; margin-inline: auto; }
+.site-header { padding: 28px var(--page-inset) 0; display: flex; justify-content: flex-end; }
+.site-header .navigation-wrap { margin: 0; position: relative; }
+.site-header .home-navigation { display: flex; justify-content: flex-end; gap: 32px; }
+.site-header .text-action { font-size: 1.0625rem; min-height: 44px; display: inline-flex; align-items: center; }
+.site-header .navigation-message { position: absolute; top: 100%; right: 0; margin: 8px 0 0; white-space: nowrap; font-size: .875rem; }
+.home-page { padding-top: 120px; }
+.home-intro .page-title { font-size: clamp(2.5rem, 5.65vw, 4.75rem); }
+.home-intro .biography { max-width: 1040px; line-height: 1.45; margin-top: 30px; }
+.featured-projects { margin-top: 140px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 48px; }
+.project-placeholder { aspect-ratio: 4 / 3; background: #4a4a40; display: grid; place-items: center; }
+.featured-project:nth-child(2) .project-placeholder, .featured-project:nth-child(3) .project-placeholder { background: #505046; }
+.project-placeholder h2 { margin: 0; font-size: clamp(3rem, 7vw, 6rem); line-height: 1; font-weight: 400; color: var(--foreground); }
+@media (max-width: 900px) {
+  .home-page { padding-top: 96px; }
+  .featured-projects { margin-top: 100px; gap: 28px; }
+}
+@media (max-width: 600px) {
+  .site-header { padding-top: 18px; }
+  .site-header .home-navigation { gap: 24px; }
+  .site-header .text-action { font-size: .9375rem; }
+  .home-page { padding-top: 76px; }
+  .home-intro .biography { margin-top: 24px; }
+  .featured-projects { margin-top: 64px; grid-template-columns: 1fr; gap: 28px; }
+}
