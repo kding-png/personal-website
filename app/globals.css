@@ -113,3 +113,51 @@ html { scroll-behavior: smooth; }
   .home-intro .biography { margin-top: 24px; }
   .featured-projects { margin-top: 64px; grid-template-columns: 1fr; gap: 28px; }
 }
+
+/* Case-study surfaces share the portfolio typography and color tokens. */
+.featured-link { display: block; color: inherit; text-decoration: none; }
+.featured-cover { aspect-ratio: 4 / 3; background: #69665c; overflow: hidden; display: flex; justify-content: center; }
+.featured-cover img { height: 100%; width: 100%; object-fit: contain; transition: transform 400ms var(--motion-ease); }
+.featured-link h2 { font-size: 2rem; font-weight: 400; margin: 24px 0 10px; }
+.featured-link p { margin: 0; max-width: 480px; font-size: 1.125rem; line-height: 1.6; }
+@media (hover: hover) { .featured-link:hover img { transform: scale(1.035); } .featured-link:hover h2 { text-decoration: underline; text-underline-offset: 7px; text-decoration-thickness: 1px; } }
+.case-header { justify-content: space-between; align-items: center; gap: 24px; }
+.case-back { color: inherit; font-size: 1rem; text-underline-offset: 6px; display: inline-block; padding-block: 12px; }
+.case-page { padding: 112px var(--page-inset) 64px; }
+.case-eyebrow { font-size: .875rem; line-height: 1.6; letter-spacing: .08em; text-transform: uppercase; margin: 0 0 24px; opacity: .8; }
+.case-intro h1 { font-size: clamp(4rem, 9vw, 8rem); font-weight: 400; line-height: 1; letter-spacing: -.04em; margin: 0 0 32px; }
+.case-deck { font-size: clamp(1.6rem, 3vw, 2.5rem); line-height: 1.3; margin: 0 0 32px; }
+.case-summary, .case-section > p:not(.case-eyebrow) { max-width: 760px; font-size: 1.1875rem; line-height: 1.75; margin-bottom: 24px; }
+.case-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin: 56px 0; padding-top: 28px; border-top: 1px solid #f9f0e633; }
+.case-facts dt { font-size: .875rem; opacity: .7; margin-bottom: 12px; }
+.case-facts dd { margin: 0; font-size: 1rem; line-height: 1.6; }
+.case-hero { background: #69665c; display: flex; justify-content: center; padding: 40px; }
+.case-hero img { max-height: 620px; width: auto; max-width: 100%; object-fit: contain; }
+.case-section { margin-top: 112px; }
+.case-section h2 { max-width: 900px; font-size: clamp(2rem, 3.4vw, 3rem); font-weight: 400; letter-spacing: -.025em; line-height: 1.2; margin: 0 0 32px; }
+.case-section h3 { font-size: 1.375rem; font-weight: 400; line-height: 1.4; margin: 0 0 14px; }
+.case-insights { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; margin-top: 40px; }
+.case-insights p, .case-findings p { font-size: 1.0625rem; line-height: 1.7; margin: 0; }
+.case-insights article { border-top: 1px solid #f9f0e633; padding-top: 24px; }
+.case-gallery { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 32px; margin: 48px 0; }
+.case-figure { margin: 0; min-width: 0; }
+.case-image { background: #eeece6; height: 460px; display: flex; align-items: center; justify-content: center; padding: 24px; }
+.case-image img { width: 100%; height: 100%; object-fit: contain; }
+.case-figure figcaption { font-size: .9375rem; line-height: 1.6; margin-top: 16px; opacity: .8; }
+.case-phones { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.case-phones .case-image { height: 520px; padding: 16px; }
+.case-comparison { max-width: 800px; }
+.case-comparison .case-image { height: 560px; }
+.case-findings { padding-left: 24px; max-width: 780px; display: grid; gap: 32px; margin-block: 40px; }
+.case-footer { border-top: 1px solid #f9f0e633; margin-top: 80px; padding-top: 24px; display: flex; justify-content: space-between; gap: 24px; }
+@media (max-width: 700px) {
+ .case-page { padding-top: 72px; }
+ .case-header { align-items: flex-start; flex-wrap: wrap; }
+ .case-facts, .case-insights { grid-template-columns: 1fr; gap: 24px; }
+ .case-section { margin-top: 72px; }
+ .case-gallery { gap: 32px; grid-template-columns: 1fr; }
+ .case-image, .case-phones .case-image, .case-comparison .case-image { height: 460px; }
+ .case-hero { padding: 20px; }
+ .case-footer { flex-wrap: wrap; }
+}
+@media (prefers-reduced-motion: reduce) { .featured-cover img { transition: none; } .featured-link:hover img { transform: none; } }
