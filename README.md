@@ -1,91 +1,45 @@
 # Kylinn Ding portfolio
 
-A responsive Next.js portfolio with `/` (homepage) and `/works` (My Works).
+A static portfolio made entirely with HTML, CSS, and a small amount of vanilla JavaScript. It has no framework, build process, or package dependencies.
 
-## Local development
+## Pages
 
-Install Node.js 22 and pnpm 11.19.0. Open a terminal in this folder:
+- `index.html`: homepage and featured projects
+- `works/index.html`: work categories
+- `works/ux/index.html`: UX project titles
+- `works/lumino/index.html`: Lumino case study
+- `styles.css`: all shared visual styling and responsive layouts
+- `script.js`: the small “coming soon” navigation interaction
+- `projects/`: portfolio image assets
 
-```sh
-pnpm install --frozen-lockfile
-pnpm dev
-```
+## Run locally
 
-Open http://localhost:3000. Run `pnpm build` before publishing; `pnpm start` serves that production build. Run `pnpm typecheck` for TypeScript checks.
-
-## Where to edit
-
-- `app/page.tsx`: homepage.
-- `app/works/page.tsx`: work categories.
-- `components/portfolio/`: reusable navigation, title, and project card.
-- `lib/portfolio.ts`: biography, navigation destinations, and project text.
-- `app/globals.css`: colors, typography, spacing, and responsive layouts.
-- `public/`: future image assets. The current references contain no images.
-
-## One-time GitHub setup
-
-This folder is the repository root. Do not upload the surrounding ChatGPT project, `sources/`, `node_modules/`, or generated output.
-
-1. The GitHub repository is https://github.com/kding-png/personal-website and is configured locally as `origin`.
-2. Authenticate Git locally with your GitHub account. Set your commit name and verified GitHub email (or GitHub's provided private noreply email).
-3. From this folder, run the following after setting your commit identity:
+Opening `index.html` directly works for basic viewing, but a local server preserves the same clean paths used online. From this folder, run:
 
 ```sh
-git config user.name "YOUR NAME"
-git config user.email "YOUR VERIFIED GITHUB EMAIL"
-git add .
-git commit -m "Prepare portfolio for Vercel"
-git push -u origin main
+python3 -m http.server 3000
 ```
 
-Do not paste access tokens into project files, remote URLs, or chat. Use GitHub's normal credential manager or sign-in flow.
+Then open `http://localhost:3000`.
 
-## One-time Vercel setup
+## Deployment
 
-1. Sign into Vercel, select **Add New → Project**, and connect GitHub.
-2. Grant access to this repository and import it.
-3. Select **Next.js** as the framework and leave **Root Directory** at the repository root (`.`). This applies when you push this folder as instructed above.
-4. Use Node.js **22.x**. The committed lockfile and packageManager field select pnpm. Keep the standard Next.js build/output defaults; do not set output to `dist`.
-5. Deploy. In **Settings → Environments → Production → Branch Tracking**, confirm **main**. In **Settings → Git**, verify the correct repository is connected.
+The repository is connected to `https://github.com/kding-png/personal-website`. Vercel recognizes it as a static HTML site from `vercel.json`; no framework or build command is required.
 
-`vercel.json` enables Git deployments. Account linking and production branch tracking are Vercel project settings, not something a local file can activate on its own. No deployment token, webhook, manual upload, or GitHub Actions deployment workflow is needed with the native integration.
+Use `main` as the production branch. Every push to `main` triggers a new Vercel production deployment. Other branches can receive preview deployments.
 
-## Connect kding29.com and www.kding29.com
+Use these Vercel project settings:
 
-In the Vercel project's **Settings → Domains**, add both domains. Use `kding29.com` for production and set `www.kding29.com` to redirect to it. Keep this redirect in Vercel settings; the application does not hardcode either hostname.
+- Framework Preset: **Other**
+- Root Directory: `.`
+- Build Command: leave blank
+- Output Directory: leave blank
+- Install Command: leave blank
 
-At the provider that manages your domain's DNS, enter the exact records Vercel displays:
+The custom domains stay configured in Vercel, not in the HTML source.
 
-| Type | Name / Host | Value |
-| --- | --- | --- |
-| A | @ | Exact IPv4 address shown for kding29.com in Vercel |
-| CNAME | www | Exact project-specific hostname shown for www.kding29.com |
-| TXT, only if requested | Exact name Vercel supplies | Exact ownership verification value Vercel supplies |
+## Editing
 
-The final IP address and CNAME target can only be confirmed after adding the domains to your Vercel project. Do not copy a generic IP or sample CNAME from an old tutorial. TTL can remain Automatic/default. If the registrar wants a full name instead of `@`, use `kding29.com`.
+Update visible text directly in its `.html` page. Add images under `projects/`, then reference them with paths such as `/projects/project-name/image.webp`. Shared colors, typography, spacing, breakpoints, and animation live in `styles.css`.
 
-Replace conflicting web records for `@` and `www` as necessary; preserve email MX/TXT records and unrelated subdomains. You can keep the existing nameservers. Wait for Vercel to show both domains as valid and HTTPS certificates issued. DNS changes can take time to propagate.
-
-## Future updates
-
-1. Ask Codex to edit this project.
-2. Review the change and run `pnpm build`.
-3. Commit and push to `main`.
-4. Vercel builds the commit automatically. Successful production deployments update the custom domains. If a build fails, inspect its Vercel logs; the previous successful deployment remains live.
-
-Other branches receive preview deployments. Merge into `main` when ready for production. Do not enable an Ignored Build Step that skips builds if every push should be considered for deployment.
-
-## Environment variables
-
-No variables are needed today. `.env.example` is a safe template. Future local secrets belong in ignored `.env.local`; deployed values belong in **Vercel → Settings → Environment Variables**, scoped to Production, Preview, or Development. Redeploy after changing them. Use `process.env.NAME` only in server code for secrets. `NEXT_PUBLIC_` values are public and bundled into browser code; never use that prefix for secrets.
-
-## Official references
-
-- https://vercel.com/docs/git/vercel-for-github
-- https://vercel.com/docs/git
-- https://vercel.com/docs/domains/working-with-domains/add-a-domain
-- https://vercel.com/kb/guide/a-record-and-caa-with-vercel
-
-## Setup status
-
-Local Vercel configuration is prepared and the GitHub remote points to `kding-png/personal-website`. The initial commit and push, account authorization, Vercel import, production deployment, and DNS verification must be completed before automatic updates are live.
+No environment variables are currently needed. Future secrets must not be added to a static HTML site because browser-delivered files are public. Add a server-side service or function before using secret API keys.
