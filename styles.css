@@ -160,3 +160,9 @@ html { scroll-behavior: smooth; }
  .case-footer { flex-wrap: wrap; }
 }
 @media (prefers-reduced-motion: reduce) { .featured-cover img { transition: none; } .featured-link:hover img { transform: none; } }
+
+/* Showroom case study shares Lumino's typography and section rhythm. */
+.showroom-cover{background:#dcdcd2;padding:24px;align-items:center}.showroom-cover img{height:auto;max-height:100%;border-radius:8px}
+.showroom-actions{display:flex;align-items:center;gap:24px;flex-wrap:wrap;margin-bottom:24px}.demo-button{background:#f9f0e6;color:#30332b;text-decoration:none;padding:16px 24px;border-radius:8px;font-size:1.0625rem}.demo-button:hover{background:white}.demo-button:focus-visible{outline:3px solid #88c6b4;outline-offset:4px}
+.demo-note{font-size:1rem;line-height:1.6;max-width:720px;opacity:.8}.showroom-hero{margin-top:48px}.showroom-hero .case-hero{background:#dcdcd2;padding:32px}.showroom-hero img{width:100%;height:auto;border-radius:8px}.showroom-wide{height:auto;padding:16px;margin-top:40px}.showroom-wide img{height:auto}.showroom-disclosure{border-top:1px solid #f9f0e633;padding-top:40px}
+@media(max-width:600px){.showroom-cover,.showroom-hero .case-hero{padding:16px}.showroom-actions{gap:16px}}
