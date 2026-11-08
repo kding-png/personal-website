@@ -209,3 +209,20 @@ html { scroll-behavior: smooth; }
 
 /* Real alpha cutout replaces the temporary polygon mask. */
 .lamp-cutout{clip-path:none;right:-8%;bottom:0;width:85%;height:auto}
+
+/* ASCII portrait composition matching the supplied homepage reference. */
+.landing-page .home-page{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.08fr);gap:4vw;align-items:center;padding-top:100px;padding-bottom:0;min-height:100svh;padding-right:3vw}
+.landing-copy{padding-bottom:90px;min-width:0}
+.landing-page .home-intro .page-title{font-size:clamp(2.75rem,5.3vw,4.75rem)}
+.landing-page .home-intro .biography{max-width:510px;font-size:clamp(1.125rem,1.7vw,1.5rem);line-height:1.25}
+.landing-page .landing-navigation{display:grid;grid-template-columns:max-content max-content;gap:44px 56px;margin-top:120px}
+.landing-page .landing-navigation .text-action{font-size:clamp(1.25rem,2.2vw,2rem)}
+.landing-page .navigation-message{margin-bottom:0}
+.ascii-portrait{container-type:inline-size;margin:0;align-self:end;width:100%;color:var(--foreground);overflow:hidden}
+.ascii-portrait pre{font-family:"Courier New",Courier,monospace;font-size:.629cqw;line-height:1;letter-spacing:0;font-weight:400;margin:0;white-space:pre;font-variant-ligatures:none}
+@media(max-width:900px){.landing-page .home-page{gap:24px;padding-top:100px}.landing-page .landing-navigation{gap:32px 28px;margin-top:72px}.landing-copy{padding-bottom:60px}}
+@media(max-width:700px){.landing-page .home-page{grid-template-columns:1fr;padding:90px 8vw 0;gap:12px}.landing-copy{padding-bottom:0}.landing-page .home-intro .page-title{font-size:clamp(2.7rem,8vw,3.8rem)}.landing-page .landing-navigation{margin-top:52px;gap:28px 32px}.ascii-portrait{width:min(100%,430px);justify-self:end}.landing-page .home-intro .biography{max-width:440px}}
+
+/* Increase ASCII portrait contrast against the pale background. */
+.ascii-portrait{color:#171812}
+.ascii-portrait pre{font-weight:700}
