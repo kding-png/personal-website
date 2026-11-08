@@ -8,6 +8,7 @@ A static portfolio made entirely with HTML, CSS, and a small amount of vanilla J
 - `works/index.html`: work categories
 - `works/ux/index.html`: UX project titles
 - `works/lumino/index.html`: Lumino case study
+- `works/migrant-compass/index.html`: Migrant Compass WIP entry with team attribution
 - `styles.css`: all shared visual styling and responsive layouts
 - `script.js`: the small “coming soon” navigation interaction
 - `projects/`: portfolio image assets
