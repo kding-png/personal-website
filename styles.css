@@ -226,3 +226,4 @@ html { scroll-behavior: smooth; }
 /* Increase ASCII portrait contrast against the pale background. */
 .ascii-portrait{color:#171812}
 .ascii-portrait pre{font-weight:700}
+.ascii-portrait pre{-webkit-text-stroke:.12px currentColor}
