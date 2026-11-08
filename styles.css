@@ -209,3 +209,13 @@ html { scroll-behavior: smooth; }
 
 /* Real alpha cutout replaces the temporary polygon mask. */
 .lamp-cutout{clip-path:none;right:-8%;bottom:0;width:85%;height:auto}
+
+/* Portrait beside the homepage introduction. */
+.intro-with-portrait{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);align-items:center;gap:48px}
+.intro-portrait{margin:0;align-self:end;display:flex;justify-content:center;min-width:0}
+.intro-portrait img{display:block;width:100%;max-width:450px;max-height:580px;height:auto;object-fit:contain;object-position:bottom}
+.landing-page .home-page{padding-top:clamp(90px,10vw,160px)}
+.landing-page .home-intro .page-title{font-size:clamp(3rem,5.3vw,4.75rem)}
+.landing-page .landing-navigation{margin-top:64px}
+@media(max-width:900px) and (min-width:701px){.intro-with-portrait{gap:24px;grid-template-columns:1.2fr 1fr}.landing-page .home-intro .page-title{font-size:clamp(2.5rem,5.3vw,3.5rem)}.landing-page .home-intro .biography{font-size:1.125rem}.intro-portrait img{max-height:440px}}
+@media(max-width:700px){.intro-with-portrait{grid-template-columns:1fr;gap:36px}.intro-portrait{justify-content:flex-end}.intro-portrait img{max-width:320px;max-height:400px}.landing-page .home-page{padding-top:85px}.landing-page .landing-navigation{margin-top:40px}.landing-page .home-intro .page-title{font-size:clamp(2.7rem,8vw,3.8rem)}}
