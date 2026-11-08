@@ -206,3 +206,6 @@ html { scroll-behavior: smooth; }
 @media(max-width:1000px){.work-art{height:300px}.phone-mockup{height:270px}.work-link h2{font-size:1.5rem}.landing-page .home-intro .biography{font-size:1.2rem;max-width:390px}.landing-navigation{margin-top:100px}.landing-navigation .text-action{font-size:1.5rem}}
 @media(max-width:600px){.landing-page .home-page,.selected-works{padding-top:110px}.landing-navigation{align-items:flex-start;flex-direction:column;gap:22px;margin-top:76px}.landing-page .home-intro .biography{line-height:1.35}.work-gallery{grid-template-columns:1fr;gap:60px;margin-top:48px}.work-art{height:330px;max-width:390px;margin-inline:auto}.phone-mockup{height:300px}.work-link h2{margin-top:24px}.landing-page::before{background:linear-gradient(140deg,#babdbd 0%,#babdbd 10%,transparent 55%)}}
 @media(prefers-reduced-motion:reduce){.work-link .work-art{transition:none}.work-link:hover .work-art{transform:none}}
+
+/* Real alpha cutout replaces the temporary polygon mask. */
+.lamp-cutout{clip-path:none;right:-8%;bottom:0;width:85%;height:auto}
